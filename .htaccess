@@ -1,0 +1,13 @@
+ErrorDocument 404 http://192.168.53.222:7575/edrb/404
+ErrorDocument 403 http://192.168.53.222:7575/edrb/404
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME}\.php !-f
+RewriteRule ^([^.]+)$ $1.html [NC,L]
+RewriteCond %{REQUEST_FILENAME}\.html !-f
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+
+DirectoryIndex dashboard.php
+</IfModule>
